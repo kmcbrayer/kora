@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 class LoginForm extends React.Component {
     render() {
         return (
-            <div>
+            <div className="full-page">
                 <div>LoginForm Component</div>
                 <Link to="/">Home</Link>
             </div>

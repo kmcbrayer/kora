@@ -24,6 +24,7 @@
   "dependencies": {
     "co-views": "^2.1.0",
     "koa": "^1.2.4",
+    "koa-request": "^1.0.0",
     "koa-router": "^7.1.0",
     "koa-send": "^3.3.0",
     "koa-static": "^2.0.0",
