@@ -9,6 +9,10 @@ module.exports = function(grunt) {
             browserify: {
                 files: ['src/**/*.jsx'],
                 tasks: ['browserify']
+            },
+            sass: {
+                files: ['styles/**/*.scss'],
+                tasks: ['sass']
             }
         },
 
