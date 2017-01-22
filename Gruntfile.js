@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+    require('load-grunt-tasks')(grunt);
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -18,6 +20,17 @@ module.exports = function(grunt) {
                 src: ['src/**/*.jsx'],
                 dest: 'public/app.js'
             }
+        },
+
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'public/main.css': 'styles/**/*.scss'
+                }
+            }
         }
 
     });
@@ -25,6 +38,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.registerTask('default', ['browserify', 'watch']);
+    grunt.registerTask('default', ['browserify', 'sass', 'watch']);
 
 };
