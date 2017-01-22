@@ -1,7 +1,8 @@
 
 var koa = require('koa');
 var send = require('koa-send');
-var router = require('koa-router')();
+var Router = require('koa-router');
+var router = new Router();
 var serve = require('koa-static');
 var app = module.exports = koa();
 
@@ -17,7 +18,9 @@ app.use(serve(__dirname + '/public'));
 //     this.body = 'hi from post'
 // });
 //
-// app.use(router.routes());
+// app
+//   .use(router.routes())
+//   .use(router.allowedMethods());
 
 app.use(function* index(){
     yield send(this, "./index.html");
