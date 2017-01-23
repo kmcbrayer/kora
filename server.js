@@ -1,9 +1,9 @@
 
 var koa = require('koa');
 var send = require('koa-send');
-var Router = require('koa-router');
-var router = new Router();
+var router = require('koa-router')();
 var serve = require('koa-static');
+
 var app = module.exports = koa();
 
 
@@ -11,21 +11,18 @@ var app = module.exports = koa();
 app.use(serve(__dirname + '/public'));
 
 // rest endpoints
-// router.get('/api/whatever', function *(){
-//     this.body = 'hi from get';
-// });
-// router.post('/api/whatever', function *(){
-//     this.body = 'hi from post'
-// });
-//
-// app
-//   .use(router.routes())
-//   .use(router.allowedMethods());
+router.get('/api/whatever', function *(){
+    this.body = 'hi from get';
+});
+router.post('/api/whatever', function *(){
+    this.body = 'hi from post'
+});
 
 app.use(function* index(){
     yield send(this, "./index.html");
 });
 
+app.use(router.routes());
 
 app.listen(3000);
 
