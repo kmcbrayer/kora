@@ -6,11 +6,10 @@ var serve = require('koa-static');
 
 var app = module.exports = koa();
 
-
 //put static files in /public
 app.use(serve(__dirname + '/public'));
 
-// rest endpoints
+// example rest endpoints
 router.get('/api/whatever', function *(){
     this.body = 'hi from get';
 });
