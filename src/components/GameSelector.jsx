@@ -9,10 +9,18 @@ class GameSelector extends React.Component {
         }
     }
 
+    selectGame(game) {
+        console.log(game.name);
+    }
+
     render() {
         const gameItems = this.state.games.map((game) => {
             return (
-                <li key={game.id} className="game-item">
+                <li
+                    key={game.id}
+                    className="game-item"
+                    onClick={() => this.selectGame(game)}
+                >
                     {game.name}
                 </li>
             );
