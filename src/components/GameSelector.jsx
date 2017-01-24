@@ -2,11 +2,27 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class GameSelector extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            games: window.loadInfo && window.loadInfo.games || []
+        }
+    }
+
     render() {
+        const gameItems = this.state.games.map((game) => {
+            return (<li key={game.id}>{game.name}</li>);
+        });
+
         return (
             <div>
-                <div>GameSelector Component</div>
-                <Link to='login'>Login</Link>
+                {this.state.games.length ? (
+                    <ul>
+                        {gameItems}
+                    </ul>
+                ) : (
+                    "No games found"
+                )}
             </div>
         );
     }
