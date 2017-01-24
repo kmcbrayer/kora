@@ -11,7 +11,11 @@ class GameSelector extends React.Component {
 
     render() {
         const gameItems = this.state.games.map((game) => {
-            return (<li key={game.id}>{game.name}</li>);
+            return (
+                <li key={game.id} className="game-item">
+                    {game.name}
+                </li>
+            );
         });
 
         return (
