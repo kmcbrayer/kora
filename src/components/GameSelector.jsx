@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-class Home extends React.Component {
+class GameSelector extends React.Component {
     render() {
         return (
             <div>
-                <div>App Component</div>
+                <div>GameSelector Component</div>
                 <Link to='login'>Login</Link>
             </div>
         );
     }
 }
 
-export default Home;
+export default GameSelector;
