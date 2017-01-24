@@ -1,24 +1,44 @@
 
 var koa = require('koa');
 var send = require('koa-send');
+var request = require('koa-request');
 var router = require('koa-router')();
 var serve = require('koa-static');
+var views = require('koa-views');
 
 var app = module.exports = koa();
 
 //put static files in /public
 app.use(serve(__dirname + '/public'));
 
-// example rest endpoints
-router.get('/api/whatever', function *(){
-    this.body = 'hi from get';
-});
-router.post('/api/whatever', function *(){
-    this.body = 'hi from post'
-});
+// rest endpoints
+// router.get('/games', function *(){
+//     //this.body = data;
+// });
+
+app.use(views(__dirname + '/views', {
+    map: {
+        html: 'lodash'
+    }
+}));
+
 
 app.use(function* index(){
-    yield send(this, "./index.html");
+    // not x-domain yet
+    var options = {
+        url: 'http://localhost:8082/ticket-service/v2/game/activeGamesInfo',
+        headers: {
+            'User-Agent': 'request',
+            'X-Exp-Api-Key': 'TEG3VtfVnfLX6CmoRpox'
+        }
+    };
+
+    var response = yield request(options);
+    var data = JSON.parse(response.body);
+
+    //console.log(data);
+
+    yield this.render("index", {games: data});
 });
 
 app.use(router.routes());
