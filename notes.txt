@@ -1,0 +1,7 @@
+readMe.md:
+    load up TS
+
+
+Redux:
+example http://redux.js.org/docs/basics/ExampleTodoList.html
+

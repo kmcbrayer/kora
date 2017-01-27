@@ -29,7 +29,7 @@ app.use(function* index(){
         url: 'http://localhost:8082/ticket-service/v2/game/activeGamesInfo',
         headers: {
             'User-Agent': 'request',
-            'X-Exp-Api-Key': 'nope'
+            'X-Exp-Api-Key': 'TEG3VtfVnfLX6CmoRpox'
         }
     };
 
