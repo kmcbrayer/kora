@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import loadInfo from './gameReducer.jsx'
+import gameInfo from './GameReducer.jsx'
+import categoryInfo from './CategoryReducer.jsx'
 
 const gameApp = combineReducers({
-    loadInfo
+    gameInfo,
+    categoryInfo
 });
 
 export default gameApp;

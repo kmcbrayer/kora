@@ -7,7 +7,7 @@ import CategorySelectionList from '../components/CategorySelectionList.jsx';
 
 const mapStateToProps = (state) => {
     return {
-        categories: state.loadInfo[state.loadInfo.selectedGameId].categories
+        categories: state.categoryInfo[state.gameInfo.selectedGameId].categories
     }
 };
 

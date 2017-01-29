@@ -1,16 +1,9 @@
-const initialState = {
-    games: window.loadInfo.games,
-    selectedGameId: window.loadInfo.games[0].id
-};
-
-const loadInfo = (state = initialState, action) => {
+const categoryInfo = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_SELECTED_GAME':
-            return Object.assign({}, state, {
-                selectedGameId: action.gameId
-            });
         case 'SET_SELECTED_CATEGORY':
-            return state;
+            return Object.assign({}, state, {
+                selectedCategory: action.category
+            });
         case 'REQUEST_CATEGORIES_FOR_GAMEID':
             return Object.assign({}, state, {
                 [action.gameId]: {
@@ -29,4 +22,4 @@ const loadInfo = (state = initialState, action) => {
     }
 };
 
-export default loadInfo;
+export default categoryInfo;

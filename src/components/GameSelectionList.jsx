@@ -12,7 +12,7 @@ const GameSelectionList = ({ games, onGameClick }) => (
                     onClick={() => onGameClick(game.id)}
                 >
                     {game.name}
-                </li><br>
+                </li>
             )
         ) : (
             <div> No Games Found</div>

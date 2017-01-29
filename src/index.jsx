@@ -25,9 +25,6 @@ let store = createStore(
     )
 );
 
-// pre-load categories for first game
-store.dispatch(fetchCategories(store.getState().loadInfo.games[0].id));
-
 render((
     <Provider store={store}>
         <Router history={browserHistory}>
