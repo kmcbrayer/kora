@@ -7,7 +7,7 @@ const CategorySelectionList = ({ categories, onCategoryClick }) => (
             categories.map(category =>
                 <li
                     key={category.id}
-                    className="game-item"
+                    className="list-item"
                     onClick={() => onCategoryClick(category.id)}
                 >
                     {category.name}

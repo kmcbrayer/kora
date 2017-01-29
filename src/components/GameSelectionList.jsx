@@ -8,11 +8,11 @@ const GameSelectionList = ({ games, onGameClick }) => (
             games.map(game =>
                 <li
                     key={game.id}
-                    className="game-item"
+                    className="list-item"
                     onClick={() => onGameClick(game.id)}
                 >
                     {game.name}
-                </li>
+                </li><br>
             )
         ) : (
             <div> No Games Found</div>

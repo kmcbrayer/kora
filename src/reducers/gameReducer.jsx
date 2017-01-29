@@ -1,22 +1,29 @@
 const initialState = {
     games: window.loadInfo.games,
-    selectedGame: window.loadInfo.games[0]
+    selectedGameId: window.loadInfo.games[0].id
 };
 
 const loadInfo = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_SELECTED_GAME':
-            let game = null;
-            for(let i = 0; i < state.games; i++) {
-                if (state.games[1].id == action.gameId) {
-                    game = state.games[i];
-                }
-            }
             return Object.assign({}, state, {
-                selectedGame: game ? game : null
+                selectedGameId: action.gameId
             });
         case 'SET_SELECTED_CATEGORY':
             return state;
+        case 'REQUEST_CATEGORIES_FOR_GAMEID':
+            return Object.assign({}, state, {
+                [action.gameId]: {
+                    isFetching: true,
+                }
+            });
+        case 'RECEIVE_CATEGORIES_FOR_GAMEID':
+            return Object.assign({}, state, {
+                [action.gameId]: {
+                    isFetching: false,
+                    categories: action.categoriesJson.categories
+                }
+            });
         default:
             return state
     }

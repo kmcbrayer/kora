@@ -1,7 +1,6 @@
 //this needs to be first
 import 'babel-polyfill'
 
-
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
@@ -26,7 +25,7 @@ let store = createStore(
     )
 );
 
-//pre load categories for first game
+// pre-load categories for first game
 store.dispatch(fetchCategories(store.getState().loadInfo.games[0].id));
 
 render((

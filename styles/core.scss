@@ -10,7 +10,7 @@ ul {
   height: 100%;
 }
 
-.game-item {
+.list-item {
   width: 350px;
   height: 100px;
   border: 1px solid black;
@@ -21,4 +21,6 @@ ul {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px; /* future proofing */
+  float: left;
+  clear: both;
 }
