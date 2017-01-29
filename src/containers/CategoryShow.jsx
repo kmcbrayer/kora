@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     return {
         groupSize: 2,
         category: state.categoryInfo.selectedCategory,
-        seats: state.ticketInfo.seats || "Finding Seats",
+        ticketBucket: state.ticketInfo.bucket.ticketBucket,
     }
 };
 

@@ -2,15 +2,15 @@ const ticketInfo = (state = {}, action) => {
     switch (action.type) {
         case 'REQUEST_SEAT_LOCATION':
             return Object.assign({}, state, {
-                [action.gameId]: {
-                    isFetching: true,
+                bucket: {
+                    isFetching: true
                 }
             });
         case 'RECEIVE_SEAT_LOCATION':
             return Object.assign({}, state, {
-                [action.categoryId]: {
+                bucket: {
                     isFetching: false,
-                    seats: action.seats
+                    ticketBucket: action.ticketBucketJson
                 }
             });
         default:

@@ -51,29 +51,26 @@ function requestSeatLocation(categoryId, gameId) {
     }
 }
 
-function receiveSeatLocation(categoryId, gameId, seats) {
-    debugger;
+function receiveSeatLocation(categoryId, gameId, ticketBucketJson) {
     return {
         type: 'RECEIVE_SEAT_LOCATION',
         categoryId,
         gameId,
-        seats
+        ticketBucketJson
     }
 }
 
 export function fetchSeatLocation(categoryId, gameId, groupSize) {
-    const url = 'http://localhost:8082/ticket-service/v2/game/' + gameId + '/category' + categoryId + '/ticket';
+    // cant use body: { params: ... } in "fetch"? that seems dumb
+    const queryParams = 'seatCategoryId=' + categoryId + '&groupSize=' + groupSize + '&gameId=' + gameId;
+    const url = 'http://localhost:8082/ticket-service/v2/game/' + gameId + '/category/' + categoryId + '/ticket' + '?' + queryParams;
     return dispatch => {
         dispatch(requestSeatLocation(categoryId, gameId));
         return fetch(url, {
             headers: {
                 'X-EXP-API-KEY': EXP_API_KEY
-            },
-            body: {
-                groupSize: groupSize,
-                ticketSource: 1 // IDK what this means yet
             }
         }).then(response => response.json())
-            .then(json => dispatch(receiveSeatLocation(categoryId, gameId, json)))
+            .then(ticketBucketJson => dispatch(receiveSeatLocation(categoryId, gameId, ticketBucketJson)))
     }
 }

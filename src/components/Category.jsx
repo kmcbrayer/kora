@@ -1,11 +1,15 @@
 import React from 'react';
 
-const Category = ({ category, seats, groupSize, onCheckoutClick, onGroupSizeChange }) => (
+const Category = ({ category, ticketBucket, groupSize, onCheckoutClick, onGroupSizeChange }) => (
     <div>
         <h3>{category.name}</h3>
         <p>{category.description}</p>
         <div className="cat-line-item">
-            Seats: {seats.location}
+            Seats: { ticketBucket ? (
+                <span>{ticketBucket.ticket.section}, {ticketBucket.ticket.row}, {ticketBucket.ticket.seat}</span>
+            ) : (
+                <span>Finding Seats</span>
+            )}
         </div>
         <div className="cat-line-item">
             Quantity: {groupSize}
