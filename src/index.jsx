@@ -12,8 +12,9 @@ import createLogger from 'redux-logger';
 import reducer from './reducers/index.jsx';
 import GameSelector from './containers/GameSelector.jsx';
 import CategorySelector from './containers/CategorySelector.jsx';
+import CategoryShow from './containers/CategoryShow.jsx';
+
 import NoMatch from './components/NoMatch.jsx';
-import { fetchCategories } from './actions/index.jsx';
 
 const loggerMiddleware = createLogger();
 
@@ -30,6 +31,7 @@ render((
         <Router history={browserHistory}>
             <Route path="/" component={GameSelector}/>
             <Route path="categories" component={CategorySelector}/>
+            <Route path="categoryShow" component={CategoryShow}/>
             <Route path="*" component={NoMatch}/>
         </Router>
     </Provider>

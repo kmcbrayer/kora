@@ -3,3 +3,4 @@ public/main.css
 public/main.css.map
 .idea/
 node_modules/
+src/secrets.jsx

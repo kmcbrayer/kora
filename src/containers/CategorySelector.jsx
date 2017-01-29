@@ -13,9 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onCategoryClick: (categoryId) => {
-            dispatch(setSelectedCategory(categoryId));
-            browserHistory.push('/');
+        onCategoryClick: (category) => {
+            dispatch(setSelectedCategory(category));
+            browserHistory.push('/categoryShow');
         }
     }
 };

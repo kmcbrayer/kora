@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import EXP_API_KEY from '../secrets.jsx'
 
 export function setSelectedGame(gameId) {
     return {
@@ -7,10 +8,10 @@ export function setSelectedGame(gameId) {
     }
 }
 
-export function setSelectedCategory(categoryId) {
+export function setSelectedCategory(category) {
     return {
         type: 'SET_SELECTED_CATEGORY',
-        categoryId
+        category: category
     }
 }
 
@@ -35,7 +36,7 @@ export function fetchCategories(gameId) {
         dispatch(requestCategories(gameId));
         return fetch(url, {
                 headers: {
-                    'X-EXP-API-KEY': 'nope'
+                    'X-EXP-API-KEY': EXP_API_KEY
                 }
             }).then(response => response.json())
             .then(json => dispatch(receiveCategories(gameId, json)))

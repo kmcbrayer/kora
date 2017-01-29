@@ -8,7 +8,7 @@ const CategorySelectionList = ({ categories, onCategoryClick }) => (
                 <li
                     key={category.id}
                     className="list-item"
-                    onClick={() => onCategoryClick(category.id)}
+                    onClick={() => onCategoryClick(category)}
                 >
                     {category.name}
                 </li>
