@@ -1,5 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+
 import { setSelectedGame } from '../actions/index.jsx';
 import GameSelectionList from '../components/GameSelectionList.jsx';
 
@@ -12,7 +14,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onGameClick: (gameId) => {
-            dispatch(setSelectedGame(gameId))
+            dispatch(setSelectedGame(gameId));
+            browserHistory.push('/categories')
         }
     }
 };
