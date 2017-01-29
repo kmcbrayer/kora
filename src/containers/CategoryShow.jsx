@@ -7,7 +7,8 @@ import Category from '../components/Category.jsx';
 const mapStateToProps = (state) => {
     return {
         groupSize: 2,
-        category: state.categoryInfo.selectedCategory
+        category: state.categoryInfo.selectedCategory,
+        seats: state.ticketInfo.seats || "Finding Seats",
     }
 };
 
@@ -17,9 +18,9 @@ const mapDispatchToProps = (dispatch) => {
             console.log("group size change click")
             //dispatch(groupSizeChangeForCategory(category));
         },
-        onPurchaseClick: (category) => {
-            console.log("purchase click")
-            //dispatch(purchaseCategory(category));
+        onCheckoutClick: (category) => {
+            console.log("checkout click")
+            //dispatch(checkoutCategory(category));
         }
     }
 };
