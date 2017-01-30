@@ -10,6 +10,10 @@ ul {
   height: 100%;
 }
 
+.full-width {
+  width: 375px;
+}
+
 .list-item {
   width: 350px;
   height: 100px;
@@ -27,4 +31,8 @@ ul {
 
 p {
   width: 375px;
+}
+
+.seat-refresh {
+  float: right;
 }

@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import Category from '../components/Category.jsx';
+import { fetchSeatLocation } from '../actions/index.jsx';
 
 const mapStateToProps = (state) => {
     return {
+        gameId: state.gameInfo.selectedGameId,
         groupSize: 2,
         category: state.categoryInfo.selectedCategory,
         ticketBucket: state.ticketInfo.bucket.ticketBucket,
@@ -21,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
         onCheckoutClick: (category) => {
             console.log("checkout click")
             //dispatch(checkoutCategory(category));
+        },
+        onSeatRefresh: (category, gameId) => {
+            dispatch(fetchSeatLocation(category.id, gameId, 2));
         }
     }
 };

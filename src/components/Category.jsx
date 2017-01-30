@@ -1,14 +1,19 @@
 import React from 'react';
 
-const Category = ({ category, ticketBucket, groupSize, onCheckoutClick, onGroupSizeChange }) => (
+const Category = ({ category, ticketBucket, groupSize, gameId, onCheckoutClick, onGroupSizeChange, onSeatRefresh }) => (
     <div>
         <h3>{category.name}</h3>
         <p>{category.description}</p>
         <div className="cat-line-item">
             Seats: { ticketBucket ? (
-                <span>{ticketBucket.ticket.section}, {ticketBucket.ticket.row}, {ticketBucket.ticket.seat}</span>
+                <div className="full-width">
+                    <span>{ticketBucket.ticket.section}, {ticketBucket.ticket.row}, {ticketBucket.ticket.seat}</span>
+                    <span className="seat-refresh" onClick={() => onSeatRefresh(category, gameId)}>Refresh</span>
+                </div>
             ) : (
-                <span>Finding Seats</span>
+                <div>
+                    <span>Finding Seats</span>
+                </div>
             )}
         </div>
         <div className="cat-line-item">
@@ -18,7 +23,7 @@ const Category = ({ category, ticketBucket, groupSize, onCheckoutClick, onGroupS
             Price: {category.fixedPrice / 100} / Seat
         </div>
 
-        <button onClick={onCheckoutClick(category)}>Checkout</button>
+        <button onClick={() => onCheckoutClick(category)}>Checkout</button>
     </div>
 );
 
