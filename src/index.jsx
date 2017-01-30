@@ -3,7 +3,7 @@ import 'babel-polyfill'
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
@@ -12,8 +12,8 @@ import createLogger from 'redux-logger';
 import reducer from './reducers/index.jsx';
 import GameSelector from './containers/GameSelector.jsx';
 import CategorySelector from './containers/CategorySelector.jsx';
-import CategoryShow from './containers/CategoryShow.jsx';
-
+import CategoryShowContainer from './containers/CategoryShowContainer.jsx';
+import CheckoutContainer from './containers/CheckoutContainer.jsx'
 import NoMatch from './components/NoMatch.jsx';
 
 const loggerMiddleware = createLogger();
@@ -31,7 +31,8 @@ render((
         <Router history={browserHistory}>
             <Route path="/" component={GameSelector}/>
             <Route path="categories" component={CategorySelector}/>
-            <Route path="categoryShow" component={CategoryShow}/>
+            <Route path="categoryShow" component={CategoryShowContainer}/>
+            <Route path="checkout" component={CheckoutContainer}/>
             <Route path="*" component={NoMatch}/>
         </Router>
     </Provider>

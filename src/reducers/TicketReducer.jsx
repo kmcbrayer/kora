@@ -13,6 +13,10 @@ const ticketInfo = (state = {}, action) => {
                     ticketBucket: action.ticketBucketJson
                 }
             });
+        case 'CHECKOUT_FOR_CATEGORY':
+            return Object.assign({}, state, {
+                selectedTickets: action.tickets
+            });
         default:
             return state
     }

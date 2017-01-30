@@ -74,3 +74,10 @@ export function fetchSeatLocation(categoryId, gameId, groupSize) {
             .then(ticketBucketJson => dispatch(receiveSeatLocation(categoryId, gameId, ticketBucketJson)))
     }
 }
+
+export function checkoutCategory(tickets) {
+    return {
+        type: 'CHECKOUT_FOR_CATEGORY',
+        tickets
+    }
+}

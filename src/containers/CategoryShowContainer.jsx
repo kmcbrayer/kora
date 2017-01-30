@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import Category from '../components/Category.jsx';
-import { fetchSeatLocation } from '../actions/index.jsx';
+import { fetchSeatLocation, checkoutCategory } from '../actions/index.jsx';
 
 const mapStateToProps = (state) => {
     return {
@@ -16,13 +16,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onGroupSizeChange: (category) => {
-            console.log("group size change click")
-            //dispatch(groupSizeChangeForCategory(category));
-        },
-        onCheckoutClick: (category) => {
-            console.log("checkout click")
-            //dispatch(checkoutCategory(category));
+        onCheckoutClick: (tickets) => {
+            dispatch(checkoutCategory(tickets));
+            browserHistory.push('/checkout');
         },
         onSeatRefresh: (category, gameId) => {
             dispatch(fetchSeatLocation(category.id, gameId, 2));
@@ -30,9 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const CategoryShow = connect(
+const CategoryShowContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Category);
 
-export default CategoryShow
+export default CategoryShowContainer
