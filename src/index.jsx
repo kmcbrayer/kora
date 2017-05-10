@@ -3,8 +3,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { autoRehydrate, persistStore } from 'redux-persist';
 import createLogger from 'redux-logger';
 
 import reducer from './reducers/index.jsx';
@@ -20,11 +21,16 @@ const loggerMiddleware = createLogger();
 
 let store = createStore(
     reducer,
-    applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
+    compose(
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        ),
+        autoRehydrate()
     )
 );
+
+persistStore(store);
 
 render((
     <Provider store={store}>

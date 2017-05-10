@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Category = ({ category, ticketBucket, groupSize, gameId, onCheckoutClick, onSeatRefresh }) => (
-    <div>
+    <div>{ category ? (<div>
         <h3>{category.name}</h3>
         <p>{category.description}</p>
         <div className="cat-line-item">
@@ -23,8 +23,10 @@ const Category = ({ category, ticketBucket, groupSize, gameId, onCheckoutClick, 
             Price: {category.fixedPrice / 100} / Seat
         </div>
 
-        <button onClick={() => onCheckoutClick(ticketBucket.ticket)}>Checkout</button>
-    </div>
+        <button className="checkoutButton" onClick={() => onCheckoutClick(ticketBucket.ticket)}>Checkout</button>
+    </div>) : (
+        <div>Loading...</div>
+    )}</div>
 );
 
 export default Category;

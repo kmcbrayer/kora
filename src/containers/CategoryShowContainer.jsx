@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
         gameId: state.gameInfo.selectedGameId,
         groupSize: 2,
         category: state.categoryInfo.selectedCategory,
-        ticketBucket: state.ticketInfo.bucket.ticketBucket,
+        ticketBucket: state.ticketInfo.bucket && state.ticketInfo.bucket.ticketBucket,
     }
 };
 
