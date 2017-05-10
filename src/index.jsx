@@ -1,5 +1,3 @@
-//this needs to be first
-import 'babel-polyfill'
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -15,6 +13,8 @@ import CategorySelector from './containers/CategorySelector.jsx';
 import CategoryShowContainer from './containers/CategoryShowContainer.jsx';
 import CheckoutContainer from './containers/CheckoutContainer.jsx'
 import NoMatch from './components/NoMatch.jsx';
+
+import styles from '../styles/core.scss';
 
 const loggerMiddleware = createLogger();
 

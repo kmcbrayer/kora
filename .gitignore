@@ -1,6 +1,3 @@
-public/app.js
-public/main.css
-public/main.css.map
+dist/
 .idea/
 node_modules/
-src/secrets.jsx

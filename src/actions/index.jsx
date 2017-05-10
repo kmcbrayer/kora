@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import EXP_API_KEY from '../secrets.jsx'
 
 export function setSelectedGame(gameId) {
     return {
@@ -36,7 +35,7 @@ export function fetchCategories(gameId) {
         dispatch(requestCategories(gameId));
         return fetch(url, {
                 headers: {
-                    'X-EXP-API-KEY': EXP_API_KEY
+                    'X-EXP-API-KEY': 'TEG3VtfVnfLX6CmoRpox'
                 }
             }).then(response => response.json())
             .then(json => dispatch(receiveCategories(gameId, json)))
@@ -61,17 +60,17 @@ function receiveSeatLocation(categoryId, gameId, ticketBucketJson) {
 }
 
 export function fetchSeatLocation(categoryId, gameId, groupSize) {
-    // cant use body: { params: ... } in "fetch"? that seems dumb
     const queryParams = 'seatCategoryId=' + categoryId + '&groupSize=' + groupSize + '&gameId=' + gameId;
     const url = 'http://localhost:8082/ticket-service/v2/game/' + gameId + '/category/' + categoryId + '/ticket' + '?' + queryParams;
     return dispatch => {
         dispatch(requestSeatLocation(categoryId, gameId));
         return fetch(url, {
             headers: {
-                'X-EXP-API-KEY': EXP_API_KEY
+                'X-EXP-API-KEY': 'TEG3VtfVnfLX6CmoRpox'
             }
         }).then(response => response.json())
             .then(ticketBucketJson => dispatch(receiveSeatLocation(categoryId, gameId, ticketBucketJson)))
+        //.catch()
     }
 }
 
