@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import { updateUserName, updateUserEmail } from '../actions/UserActions.jsx';
 
 import Checkout from '../components/Checkout.jsx';
 
@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
         gameId: state.gameInfo.selectedGameId, // gonna need to get game here
         category: state.categoryInfo.selectedCategory,
         tickets: state.ticketInfo.selectedTickets,
+        userInfo: state.userInfo
     }
 };
 
@@ -16,6 +17,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onPurchaseClick: (tickets, fanInfo) => {
             console.log("purchase click")
+        },
+        updateName: (e) => {
+            dispatch(updateUserName(e.target.value))
+        },
+        updateEmail: (e) => {
+            dispatch(updateUserEmail(e.target.value))
         }
     }
 };

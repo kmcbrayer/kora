@@ -5,3 +5,5 @@ readMe.md:
 Redux:
 example http://redux.js.org/docs/basics/ExampleTodoList.html
 
+v2/game/##/ticket/purchase/
+
