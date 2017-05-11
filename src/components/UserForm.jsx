@@ -16,14 +16,14 @@ export default class UserForm extends React.Component {
             <form style={styles.form}>
                 <div>
                     Name: <input type="text"
-                                 onBlur={this.props.updateName}
+                                 onChange={this.props.updateName}
                                  value={this.props.userInfo.name}
                                  placeholder="Me"
                                  style={styles.input} />
                 </div>
                 <div>
                     Email: <input type="email"
-                                  onBlur={this.props.updateEmail}
+                                  onChange={this.props.updateEmail}
                                   value={this.props.userInfo.email}
                                   required
                                   placeholder="me@expapp.com"
