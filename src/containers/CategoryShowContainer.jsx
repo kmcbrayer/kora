@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import Category from '../components/Category.jsx';
-import { fetchSeatLocation, checkoutCategory } from '../actions/index.jsx';
+import { checkoutCategory } from '../actions/CategoryActions.jsx';
+import { fetchSeatLocation } from '../actions/index.jsx';
 
 const mapStateToProps = (state) => {
     return {

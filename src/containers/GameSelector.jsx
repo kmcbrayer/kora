@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 
-import { setSelectedGame, fetchCategories } from '../actions/index.jsx';
+import { setSelectedGame } from '../actions/index.jsx';
+import { fetchCategories } from '../actions/CategoryActions.jsx';
 import GameSelectionList from '../components/GameSelectionList.jsx';
 
 const mapStateToProps = (state) => {
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
         onGameClick: (gameId) => {
             dispatch(setSelectedGame(gameId));
             dispatch(fetchCategories(gameId));
-            browserHistory.push('/categories')
+            console.log(this)
         }
     }
 };

@@ -10,7 +10,7 @@ const GameSelectionList = ({ games, onGameClick }) => (
                     className="list-item"
                     onClick={() => onGameClick(game.id)}
                 >
-                    {game.name} more stuff
+                    {game.name}
                 </li>
             )
         ) : (

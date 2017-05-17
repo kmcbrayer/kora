@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { setSelectedCategory, fetchSeatLocation } from '../actions/index.jsx';
+import { fetchSeatLocation } from '../actions/index.jsx';
+import { setSelectedCategory,  } from '../actions/CategoryActions.jsx';
 
 import CategorySelectionList from '../components/CategorySelectionList.jsx';
 
