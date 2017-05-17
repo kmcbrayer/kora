@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { TICKET_SERVICE_API_KEY } from '../Utils/secrets.jsx'
 
 export function setSelectedCategory(category) {
     return {
@@ -27,8 +28,9 @@ export function fetchCategories(gameId) {
     return dispatch => {
         dispatch(requestCategories(gameId));
         return fetch(url, {
+
             headers: {
-                'X-EXP-API-KEY': 'TEG3VtfVnfLX6CmoRpox'
+                'X-EXP-API-KEY': TICKET_SERVICE_API_KEY
             }
         }).then(response => response.json())
             .then(json => dispatch(receiveCategories(gameId, json)))

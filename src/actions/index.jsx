@@ -1,4 +1,5 @@
-
+import fetch from 'isomorphic-fetch'
+import { TICKET_SERVICE_API_KEY } from '../Utils/secrets.jsx'
 
 export function setSelectedGame(gameId) {
     return {
@@ -31,10 +32,9 @@ export function fetchSeatLocation(categoryId, gameId, groupSize) {
         dispatch(requestSeatLocation(categoryId, gameId));
         return fetch(url, {
             headers: {
-                'X-EXP-API-KEY': 'TEG3VtfVnfLX6CmoRpox'
+                'X-EXP-API-KEY': TICKET_SERVICE_API_KEY
             }
         }).then(response => response.json())
             .then(ticketBucketJson => dispatch(receiveSeatLocation(categoryId, gameId, ticketBucketJson)))
-        //.catch()
     }
 }
