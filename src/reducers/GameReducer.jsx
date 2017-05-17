@@ -6,9 +6,7 @@ const initialState = {
 const gameInfo = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_SELECTED_GAME':
-            return Object.assign({}, state, {
-                selectedGameId: action.gameId
-            });
+            return {...state, selectedGameId: action.gameId};
 
         default:
             return state
