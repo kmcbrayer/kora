@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CategorySelectionList = ({ categories, gameId, onCategoryClick }) => (
     <ul>
@@ -9,7 +10,7 @@ const CategorySelectionList = ({ categories, gameId, onCategoryClick }) => (
                     className="list-item"
                     onClick={() => onCategoryClick(category, gameId)}
                 >
-                    {category.name}
+                    <Link to={`/categoryShow`}>{category.name}</Link>
                 </li>
             )
         ) : (

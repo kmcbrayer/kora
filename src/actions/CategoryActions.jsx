@@ -6,6 +6,7 @@ export function setSelectedCategory(category) {
         category
     }
 }
+
 function requestCategories(gameId) {
     return {
         type: 'REQUEST_CATEGORIES_FOR_GAMEID',

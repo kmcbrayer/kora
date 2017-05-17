@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 
 import Category from '../components/Category.jsx';
 import { checkoutCategory } from '../actions/CategoryActions.jsx';
@@ -19,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onCheckoutClick: (tickets) => {
             dispatch(checkoutCategory(tickets));
-            browserHistory.push('/checkout');
         },
         onSeatRefresh: (category, gameId) => {
             dispatch(fetchSeatLocation(category.id, gameId, 2));

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Category = ({ category, ticketBucket, groupSize, gameId, onCheckoutClick, onSeatRefresh }) => (
     <div>{ category ? (<div>
@@ -22,8 +23,9 @@ const Category = ({ category, ticketBucket, groupSize, gameId, onCheckoutClick, 
         <div className="cat-line-item">
             Price: {category.fixedPrice / 100} / Seat
         </div>
-
-        <button className="checkoutButton" onClick={() => onCheckoutClick(ticketBucket.ticket)}>Checkout</button>
+        <Link to={`/checkout`}>
+            <button className="checkoutButton" onClick={() => onCheckoutClick(ticketBucket.ticket)}>Checkout</button>
+        </Link>
     </div>) : (
         <div>Loading...</div>
     )}</div>

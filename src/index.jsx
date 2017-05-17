@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
@@ -13,7 +13,6 @@ import GameSelector from './containers/GameSelector.jsx';
 import CategorySelector from './containers/CategorySelector.jsx';
 import CategoryShowContainer from './containers/CategoryShowContainer.jsx';
 import CheckoutContainer from './containers/CheckoutContainer.jsx'
-import NoMatch from './components/NoMatch.jsx';
 
 import styles from '../styles/core.scss';
 
@@ -34,12 +33,13 @@ persistStore(store);
 
 render((
     <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route path="/" component={GameSelector}/>
-            <Route path="categories" component={CategorySelector}/>
-            <Route path="categoryShow" component={CategoryShowContainer}/>
-            <Route path="checkout" component={CheckoutContainer}/>
-            <Route path="*" component={NoMatch}/>
+        <Router>
+            <div> {/* Make this a component like <Content> or something */}
+                <Route path="/" exact={true} component={GameSelector}/>
+                <Route path="/categories" component={CategorySelector}/>
+                <Route path="/categoryShow" component={CategoryShowContainer}/>
+                <Route path="/checkout" component={CheckoutContainer}/>
+            </div>
         </Router>
     </Provider>
     ),

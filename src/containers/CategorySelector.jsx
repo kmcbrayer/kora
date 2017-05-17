@@ -20,7 +20,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(setSelectedCategory(category));
             // 2 == "defaultGroupSize"
             dispatch(fetchSeatLocation(category.id, gameId, 2));
-            browserHistory.push('/categoryShow');
         }
     }
 };

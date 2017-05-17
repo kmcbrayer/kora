@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const GameSelectionList = ({ games, onGameClick }) => (
     <ul>
@@ -10,7 +11,7 @@ const GameSelectionList = ({ games, onGameClick }) => (
                     className="list-item"
                     onClick={() => onGameClick(game.id)}
                 >
-                    {game.name}
+                    <Link to={`/categories`}>{game.name}</Link>
                 </li>
             )
         ) : (
