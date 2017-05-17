@@ -28,7 +28,6 @@ export function fetchCategories(gameId) {
     return dispatch => {
         dispatch(requestCategories(gameId));
         return fetch(url, {
-
             headers: {
                 'X-EXP-API-KEY': TICKET_SERVICE_API_KEY
             }
