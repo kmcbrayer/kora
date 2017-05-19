@@ -6,13 +6,15 @@ const GameSelectionList = ({ games, onGameClick }) => (
         {/* might need to pull these out into their own components */}
         { games ? (
             games.map(game =>
-                <li
-                    key={game.id}
-                    className="list-item"
-                    onClick={() => onGameClick(game.id)}
-                >
-                    <Link to={`/categories`}>{game.name}</Link>
-                </li>
+                <Link to={`/categories`}>
+                    <li
+                        key={game.id}
+                        className="list-item"
+                        onClick={() => onGameClick(game.id)}
+                    >
+                        {game.name}
+                    </li>
+                </Link>
             )
         ) : (
             <div> Loading... </div>

@@ -5,13 +5,15 @@ const CategorySelectionList = ({ categories, gameId, onCategoryClick }) => (
     <ul>
         { categories ? (
             categories.map(category =>
-                <li
-                    key={category.id}
-                    className="list-item"
-                    onClick={() => onCategoryClick(category, gameId)}
-                >
-                    <Link to={`/categoryShow`}>{category.name}</Link>
-                </li>
+                <Link to={`/categoryShow`}>
+                    <li
+                        key={category.id}
+                        className="list-item"
+                        onClick={() => onCategoryClick(category, gameId)}
+                    >
+                        {category.name}
+                    </li>
+                </Link>
             )
         ) : (
             <div>No Categories Found</div>

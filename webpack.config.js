@@ -14,7 +14,8 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'app.js'
   },
-  module: {
+    devtool: 'source-map',
+    module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
