@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-export default class UserForm extends React.Component {
+class UserForm extends Component {
     render() {
         const styles = {
             form: {
@@ -13,23 +14,46 @@ export default class UserForm extends React.Component {
         };
 
         return (
-            <form style={styles.form}>
+            <form style={styles.form} onSubmit={this.props.handleSubmit}>
+                <h3>User Info</h3>
                 <div>
-                    Name: <input type="text"
-                                 onChange={this.props.updateName}
-                                 value={this.props.userInfo.name}
+                    Name: <Field name="name"
+                                 type="text"
+                                 component="input"
                                  placeholder="Me"
                                  style={styles.input} />
                 </div>
                 <div>
-                    Email: <input type="email"
-                                  onChange={this.props.updateEmail}
-                                  value={this.props.userInfo.email}
-                                  required
+                    Email: <Field name="email"
+                                  type="email"
+                                  component="input"
                                   placeholder="me@expapp.com"
+                                  style={styles.input} />
+                </div>
+                <h3>Credit Card Info</h3>
+                <div>
+                    Card Number: <Field name="cardNumber"
+                                  type="text"
+                                  component="input"
+                                  style={styles.input} />
+                </div>
+                <div>
+                    Month: <Field name="month"
+                                  type="number"
+                                  component="input"
+                                  style={styles.input} />
+                </div>
+                <div>
+                    Year: <Field name="year"
+                                  type="number"
+                                  component="input"
                                   style={styles.input} />
                 </div>
             </form>
         )
     }
 }
+
+UserForm = reduxForm({ form: 'userForm' })(UserForm);
+
+export default UserForm;
