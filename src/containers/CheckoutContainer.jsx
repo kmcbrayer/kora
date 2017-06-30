@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onPurchaseClick: (tickets, fanInfo) => {
-            console.log("purchase click")
+        handleSubmit: (tickets, fanInfo) => {
+            console.log("clicked purchase")
         },
         updateName: (e) => {
             dispatch(updateUserName(e.target.value))
