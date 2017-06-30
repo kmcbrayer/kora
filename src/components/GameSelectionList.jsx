@@ -6,7 +6,7 @@ const GameSelectionList = ({ games, onGameClick }) => (
         {/* might need to pull these out into their own components */}
         { games ? (
             games.map(game =>
-                <Link to={`/categories`}>
+                <Link key={game.id} to={`/categories`}>
                     <li
                         key={game.id}
                         className="list-item"
