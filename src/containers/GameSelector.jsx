@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     return {
         games: state.gameInfo.games
     }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
