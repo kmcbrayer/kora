@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { autoRehydrate, persistStore } from 'redux-persist';
-import createLogger from 'redux-logger';
 
 import reducer from './reducers/index.jsx';
 import GameSelector from './containers/GameSelector.jsx';
@@ -16,16 +15,14 @@ import CheckoutContainer from './containers/CheckoutContainer.jsx'
 
 import styles from '../styles/core.scss';
 
-const loggerMiddleware = createLogger();
 
 let store = createStore(
     reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     compose(
         applyMiddleware(
-            thunkMiddleware,
-            loggerMiddleware
+            thunkMiddleware
         ),
-        autoRehydrate()
     )
 );
 

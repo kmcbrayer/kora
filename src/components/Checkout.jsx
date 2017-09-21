@@ -14,7 +14,7 @@ export default class Checkout extends React.Component {
                 <div>Category: {this.props.category.name}</div>
                 <div>Seat Location: {tickets.section}, {tickets.row}, {tickets.seat}</div>
                 <UserForm userInfo={this.props.userInfo} updateName={this.props.updateName} updateEmail={this.props.updateEmail} />
-                <button className="checkoutButton" onClick={() => this.props.onPurchaseClick(tickets, this.props.userInfo)}>Purchase</button>
+                <button className="checkoutButton" onClick={() => this.props.handleSubmit(tickets, this.props.userInfo)}>Purchase</button>
             </div>
             ) : (
                 <div>Loading...</div>

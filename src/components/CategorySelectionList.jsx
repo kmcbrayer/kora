@@ -5,7 +5,7 @@ const CategorySelectionList = ({ categories, gameId, onCategoryClick }) => (
     <ul>
         { categories ? (
             categories.map(category =>
-                <Link to={`/categoryShow`}>
+                <Link key={category.id} to={`/categoryShow`}>
                     <li
                         key={category.id}
                         className="list-item"
@@ -16,7 +16,7 @@ const CategorySelectionList = ({ categories, gameId, onCategoryClick }) => (
                 </Link>
             )
         ) : (
-            <div>No Categories Found</div>
+            <div>Loading Categories...</div>
         )}
     </ul>
 );
