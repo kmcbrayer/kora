@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => {
         onGameClick: (gameId) => {
             dispatch(setSelectedGame(gameId));
             dispatch(fetchCategories(gameId));
-            console.log(this)
         }
     }
 };
